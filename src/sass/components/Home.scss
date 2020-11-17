@@ -70,43 +70,103 @@
     }
 
     &-img-1 {
-      // border: solid white 10px;
-      background-color: white;
-      margin-top: 6rem;
-      width: 20rem;
-      height: 20rem;
+      margin: 0 auto;
+      transform: translateY(10rem);
+      width: 15rem;
+      height: 15rem;
       background-size: 100%;
-      background-image: url(/../src/Images/calculator.png);
+      background-image: url(/../src/Images/maths.png);
     }
 
     &-img-2 {
-      // border: solid white 10px;
-      background-color: white;
-      margin-top: 6rem;
-      width: 20rem;
-      height: 20rem;
+      margin: 0 auto;
+      transform: translateY(10rem);
+      width: 15rem;
+      height: 15rem;
       background-size: 100%;
       background-image: url(/../src/Images/book.png);
     }
 
     &-img-3 {
-        // border: solid white 10px;
-        background-color: white;
-        margin-top: 6rem;
-        width: 20rem;
-        height: 20rem;
+      margin: 0 auto;
+      transform: translateY(10rem);
+      width: 15rem;
+      height: 15rem;
+      background-size: 100%;
+      background-image: url(/../src/Images/design-tool.png);
+    }
+
+    &-img-4 {
+      margin: 0 auto;
+      transform: translateY(10rem);
+      width: 15rem;
+      height: 15rem;
+      background-size: 100%;
+      background-image: url(/../src/Images/mathematics.png);
+    }
+
+    &-img-5 {
+      margin: 0 auto;
+      transform: translateY(10rem);
+      width: 15rem;
+      height: 15rem;
+      background-size: 100%;
+      background-image: url(/../src/Images/quadrant.png);
+    }
+
+
+    &-img-6 {
+        margin: 0 auto;
+        transform: translateY(10rem);
+        width: 15rem;
+        height: 15rem;
         background-size: 100%;
-        background-image: url(/../src/Images/geometry.png);
+        background-image: url(/../src/Images/fx-sign.png);
       }
 
-      &-img-4 {
-        // border: solid white 10px;
-        background-color: white;
-        margin-top: 6rem;
-        width: 20rem;
-        height: 20rem;
+      &-img-7 {
+        margin: 0 auto;
+        transform: translateY(10rem);
+        width: 15rem;
+        height: 15rem;
         background-size: 100%;
-        background-image: url(/../src/Images/education.png);
+        background-image: url(/../src/Images/sigma.png);
+      }
+
+      &-img-8 {
+        margin: 0 auto;
+        transform: translateY(10rem);
+        width: 15rem;
+        height: 15rem;
+        background-size: 100%;
+        background-image: url(/../src/Images/calculus.png);
+      }
+
+      &-img-9 {
+        margin: 0 auto;
+        transform: translateY(10rem);
+        width: 15rem;
+        height: 15rem;
+        background-size: 100%;
+        background-image: url(/../src/Images/matrix.png);
+      }
+
+      &-img-10 {
+        margin: 0 auto;
+        transform: translateY(10rem);
+        width: 15rem;
+        height: 15rem;
+        background-size: 100%;
+        background-image: url(/../src/Images/bar-chart.png);
+      }
+
+      &-img-11 {
+        margin: 0 auto;
+        transform: translateY(10rem);
+        width: 15rem;
+        height: 15rem;
+        background-size: 100%;
+        background-image: url(/../src/Images/calculating.png);
       }
   }
 }

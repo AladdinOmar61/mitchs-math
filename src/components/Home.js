@@ -16,27 +16,48 @@ function Home() {
       <div className="programs">
         <div className="programs-box">
           <h1 className="programs-box-header">2nd - 8th Grade Math</h1>
-          <img className="programs-box-img-1"></img>
+          <div className="programs-box-img-1"></div>
         </div>
         <div className="programs-box">
           <h1 className="programs-box-header">Algebra I</h1>
-          <img className="programs-box-img-2"></img>
+          <div className="programs-box-img-2"></div>
         </div>
         <div className="programs-box">
-        <h1 className="programs-box-header">Geometry</h1>
-        <img className="programs-box-img-3"></img>
+          <h1 className="programs-box-header">Geometry</h1>
+          <div className="programs-box-img-3"></div>
         </div>
         <div className="programs-box">
-        <h1 className="programs-box-header">Algrebra II/Trigonometry</h1>
-        <img className="programs-box-img-4"></img>
+          <h1 className="programs-box-header">Algrebra II/Trigonometry</h1>
+          <div className="programs-box-img-4"></div>
         </div>
-        <div className="programs-box">Pre-Calculus</div>
-        <div className="programs-box">Calculus I</div>
-        <div className="programs-box">Calculus II</div>
-        <div className="programs-box">Calculus III</div>
-        <div className="programs-box">Linear Algrebra</div>
-        <div className="programs-box">Statistics</div>
-        <div className="programs-box">Differential Equations</div>
+        <div className="programs-box">
+        <h1 className="programs-box-header">Pre-Calculus</h1>
+          <div className="programs-box-img-5"></div>
+        </div>
+        <div className="programs-box">
+        <h1 className="programs-box-header">Calculus I</h1>
+          <div className="programs-box-img-6"></div>
+        </div>
+        <div className="programs-box">
+        <h1 className="programs-box-header">Calculus II</h1>
+          <div className="programs-box-img-7"></div>
+        </div>
+        <div className="programs-box">
+        <h1 className="programs-box-header">Calculus III</h1>
+          <div className="programs-box-img-8"></div>
+        </div>
+        <div className="programs-box">
+        <h1 className="programs-box-header">Linear Algrebra</h1>
+          <div className="programs-box-img-9"></div>
+        </div>
+        <div className="programs-box">
+        <h1 className="programs-box-header">Statistics</h1>
+          <div className="programs-box-img-10"></div>
+        </div>
+        <div className="programs-box">
+        <h1 className="programs-box-header">Differential Equations</h1>
+          <div className="programs-box-img-11"></div>
+        </div>
       </div>
     </div>
   );
