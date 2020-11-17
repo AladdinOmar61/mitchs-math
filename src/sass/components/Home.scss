@@ -1,0 +1,112 @@
+.home-header {
+  margin-top: 8rem;
+  text-transform: uppercase;
+  font-weight: 100;
+  font-size: 5rem;
+  color: white;
+  text-align: center;
+  letter-spacing: 1rem;
+
+  &-sub {
+    margin-top: 4rem;
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+  }
+}
+
+.home-nav {
+  @include box-shadow;
+  position: sticky;
+  border-bottom: solid white 0.5px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 4rem;
+
+  &-link {
+    height: 3rem;
+    text-decoration: none;
+    font-size: 2rem;
+    color: white;
+    text-transform: uppercase;
+    transition: all 0.3s;
+
+    &:hover {
+      border-bottom: solid white 1px;
+    }
+  }
+}
+
+.programs {
+  margin-top: 6rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  &-box {
+    text-align: center;
+    font-size: 3rem;
+    color: white;
+    margin: 2rem;
+    border: solid white 1px;
+    height: 40rem;
+    width: 40rem;
+    transition: all 0.3s;
+
+    &-header {
+      text-align: center;
+      font-size: 3rem;
+      color: white;
+    }
+
+    &:hover {
+      @include box-shadow;
+      transform: scale(1.05);
+    }
+
+    &-img-1 {
+      // border: solid white 10px;
+      background-color: white;
+      margin-top: 6rem;
+      width: 20rem;
+      height: 20rem;
+      background-size: 100%;
+      background-image: url(/../src/Images/calculator.png);
+    }
+
+    &-img-2 {
+      // border: solid white 10px;
+      background-color: white;
+      margin-top: 6rem;
+      width: 20rem;
+      height: 20rem;
+      background-size: 100%;
+      background-image: url(/../src/Images/book.png);
+    }
+
+    &-img-3 {
+        // border: solid white 10px;
+        background-color: white;
+        margin-top: 6rem;
+        width: 20rem;
+        height: 20rem;
+        background-size: 100%;
+        background-image: url(/../src/Images/geometry.png);
+      }
+
+      &-img-4 {
+        // border: solid white 10px;
+        background-color: white;
+        margin-top: 6rem;
+        width: 20rem;
+        height: 20rem;
+        background-size: 100%;
+        background-image: url(/../src/Images/education.png);
+      }
+  }
+}
