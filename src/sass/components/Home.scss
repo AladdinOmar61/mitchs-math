@@ -1,11 +1,12 @@
 .home-header {
+  position: relative;
   margin-top: 8rem;
   text-transform: uppercase;
-  font-weight: 100;
+  font-weight: 700;
   font-size: 5rem;
   color: white;
   text-align: center;
-  letter-spacing: 1rem;
+  letter-spacing: 1.5rem;
 
   &-sub {
     margin-top: 4rem;
@@ -15,6 +16,22 @@
     color: white;
     text-align: center;
   }
+}
+
+.math {
+  margin-left: 5rem;
+}
+
+.s {
+  position: absolute;
+  left: 48%;
+  top: 20%;
+  margin: 0 auto;
+  z-index: 1000;
+  width: 4rem;
+  height: 4rem;
+  background-size: cover;
+  background-image: url(/../src/Images/integral-mathematical-sign.png);
 }
 
 .home-nav {
@@ -40,6 +57,10 @@
       border-bottom: solid white 1px;
     }
   }
+}
+
+a {
+  text-decoration: none;
 }
 
 .programs {
@@ -114,59 +135,58 @@
       background-image: url(/../src/Images/quadrant.png);
     }
 
-
     &-img-6 {
-        margin: 0 auto;
-        transform: translateY(10rem);
-        width: 15rem;
-        height: 15rem;
-        background-size: 100%;
-        background-image: url(/../src/Images/fx-sign.png);
-      }
+      margin: 0 auto;
+      transform: translateY(10rem);
+      width: 15rem;
+      height: 15rem;
+      background-size: 100%;
+      background-image: url(/../src/Images/fx-sign.png);
+    }
 
-      &-img-7 {
-        margin: 0 auto;
-        transform: translateY(10rem);
-        width: 15rem;
-        height: 15rem;
-        background-size: 100%;
-        background-image: url(/../src/Images/sigma.png);
-      }
+    &-img-7 {
+      margin: 0 auto;
+      transform: translateY(10rem);
+      width: 15rem;
+      height: 15rem;
+      background-size: 100%;
+      background-image: url(/../src/Images/sigma.png);
+    }
 
-      &-img-8 {
-        margin: 0 auto;
-        transform: translateY(10rem);
-        width: 15rem;
-        height: 15rem;
-        background-size: 100%;
-        background-image: url(/../src/Images/calculus.png);
-      }
+    &-img-8 {
+      margin: 0 auto;
+      transform: translateY(10rem);
+      width: 15rem;
+      height: 15rem;
+      background-size: 100%;
+      background-image: url(/../src/Images/calculus.png);
+    }
 
-      &-img-9 {
-        margin: 0 auto;
-        transform: translateY(10rem);
-        width: 15rem;
-        height: 15rem;
-        background-size: 100%;
-        background-image: url(/../src/Images/matrix.png);
-      }
+    &-img-9 {
+      margin: 0 auto;
+      transform: translateY(10rem);
+      width: 15rem;
+      height: 15rem;
+      background-size: 100%;
+      background-image: url(/../src/Images/matrix.png);
+    }
 
-      &-img-10 {
-        margin: 0 auto;
-        transform: translateY(10rem);
-        width: 15rem;
-        height: 15rem;
-        background-size: 100%;
-        background-image: url(/../src/Images/bar-chart.png);
-      }
+    &-img-10 {
+      margin: 0 auto;
+      transform: translateY(10rem);
+      width: 15rem;
+      height: 15rem;
+      background-size: 100%;
+      background-image: url(/../src/Images/bar-chart.png);
+    }
 
-      &-img-11 {
-        margin: 0 auto;
-        transform: translateY(10rem);
-        width: 15rem;
-        height: 15rem;
-        background-size: 100%;
-        background-image: url(/../src/Images/calculating.png);
-      }
+    &-img-11 {
+      margin: 0 auto;
+      transform: translateY(10rem);
+      width: 15rem;
+      height: 15rem;
+      background-size: 100%;
+      background-image: url(/../src/Images/calculating.png);
+    }
   }
 }
