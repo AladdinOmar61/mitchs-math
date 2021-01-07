@@ -12,7 +12,9 @@ function ProgramDetails() {
           Login
         </Link>
       </nav>
-      <h1>Choose the amount of days per week you want to be tutored:</h1>
+      <div className="details-space">
+        <h1 className="select-days">Choose your schedule:</h1>
+      </div>
     </div>
   );
 }
