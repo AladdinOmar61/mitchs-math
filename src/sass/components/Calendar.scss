@@ -1,5 +1,13 @@
 .calendar {
   margin-top: 3rem;
+  position: relative;
+}
+
+.calendar-table {
+  z-index: 1;
+  position: absolute;
+  top: 15rem;
+  left: 0;
 }
 
 .week-table {
@@ -7,7 +15,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-size: 4rem;
+  font-size: 2rem;
   color: $black;
 }
 
@@ -16,8 +24,8 @@
   background-color: $white;
   border: solid white 1px;
   border-radius: 100px;
-  width: 15rem;
-  height: 15rem;
+  width: 10rem;
+  height: 10rem;
   margin-left: 3rem;
 }
 
@@ -33,13 +41,13 @@
 .calendar-day {
   z-index: 2;
   position: relative;
-  width: 15rem;
-  height: 15rem;
-  margin-left: 3.2rem;
+  width: 10rem;
+  height: 10rem;
+  margin-left: 3rem;
   margin-top: 1rem;
   border: solid white 1px;
   border-radius: 100px;
-  transition: all .3s;
+  transition: all 0.3s;
 
   &:hover .day-num {
     background-color: $white;
@@ -49,22 +57,47 @@
 
 .days {
   margin-top: 3rem;
-  margin-left: 5rem;
+  margin-left: 22.5rem;
   display: flex;
   flex-wrap: wrap;
   color: $white;
+  width: 75%;
 }
 
 .day-num {
+  cursor: pointer;
   z-index: 1;
   border-radius: 100px;
   width: 100%;
   height: 100%;
-  font-size: 7rem;
+  font-size: 3rem;
   position: absolute;
   text-align: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: all .3s;
+  transition: all 0.3s;
 }
+
+.today > .day-num {
+  text-decoration: underline;
+}
+
+.calendar-navi {
+  font-size: 7rem;
+  margin: 0 auto;
+  text-align: center;
+  color: $white;
+}
+
+// .calendar-month {
+//   z-index: 10;
+//   margin: 0 auto 0 35rem;
+//   text-align: center;
+//   border: solid white 1px;
+//   position: absolute;
+//   font-size: 5rem;
+//   width: 40rem;
+//   height: 10rem;
+//   color: $white;
+// }

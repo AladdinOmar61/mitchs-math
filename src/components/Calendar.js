@@ -6,10 +6,58 @@ export default class Calendar extends React.Component {
 
   state = {
     dateObject: moment(),
+    allMonths: moment.months(),
   };
 
   daysInMonth = () => {
     return this.state.dateObject.daysInMonth();
+  };
+
+  currentDay = () => {
+    return this.state.dateObject.format("D");
+  };
+
+  month = () => {
+    return this.state.dateObject.format("MMMM");
+  };
+
+  monthList = (props) => {
+    let months = [];
+    props.data.map((data) => {
+      months.push(
+        <td>
+          <span>{data}</span>
+        </td>
+      );
+    });
+
+    let rows = [];
+    let cells = [];
+
+    months.forEach((row, i) => {
+      if (i % 3 !== 0 || i == 0) {
+        cells.push(row);
+      } else {
+        rows.push(cells);
+        cells = [];
+        cells.push(row);
+      }
+    });
+    rows.push(cells);
+
+    let monthList = rows.map((d, i) => {
+      return <tr>{d}</tr>;
+    });
+    return (
+      <table className="calendar-month">
+        <thead>
+          <tr>
+            <th colspan="4">Select a Month</th>
+          </tr>
+        </thead>
+        <tbody>{monthList}</tbody>
+      </table>
+    );
   };
 
   firstDayOfMonth = () => {
@@ -34,8 +82,9 @@ export default class Calendar extends React.Component {
     }
     let daysInMonth = [];
     for (let d = 1; d <= this.daysInMonth(); d++) {
+      let currentDay = d == this.currentDay() ? "today" : "";
       daysInMonth.push(
-        <td key={d} className="calendar-day">
+        <td key={d} className={`calendar-day ${currentDay}`}>
           <span className="day-num">{d}</span>
         </td>
       );
@@ -60,10 +109,15 @@ export default class Calendar extends React.Component {
       let daysInMonth = rows.map((d, i) => {
         return <tr>{d}</tr>;
       });
-
     });
     return (
       <div className="calendar">
+        <div className="tail-datetime-calendar">
+          <div className="calendar-navi">{this.month()}</div>
+        </div>
+        <div className="calendar-date">
+          <this.monthList data={moment.months()} />
+        </div>
         <table className="calendar-table">
           <thead>
             <tr className="week-table">{weekdayshortname}</tr>
