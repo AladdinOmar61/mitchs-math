@@ -14,7 +14,7 @@ function ProgramDetails() {
         </Link>
       </nav>
       <div className="details-space">
-        <h1 className="select-days">Choose your schedule</h1>
+        <h1 className="select-days">Select A Day</h1>
         <Calendar />
       </div>
     </div>
