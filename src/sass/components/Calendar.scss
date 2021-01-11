@@ -1,13 +1,67 @@
 .calendar {
   margin-top: 3rem;
   position: relative;
+
+  &-table {
+    z-index: 1;
+    position: absolute;
+    top: 15rem;
+    left: 0;
+  }
+
+  &-day {
+    z-index: 2;
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+    margin-left: 3rem;
+    margin-top: 1rem;
+    border: solid white 1px;
+    border-radius: 100px;
+    transition: all 0.3s;
+
+    &:hover .days-num {
+      background-color: $white;
+      color: $black;
+    }
+  }
+
+  &-navi {
+    font-size: 7rem;
+    margin: 0 auto;
+    text-align: center;
+    color: $white;
+  }
+
+  &-month {
+    z-index: 10;
+    margin: 0 auto 0 35rem;
+    text-align: center;
+    border: solid white 1px;
+    position: absolute;
+    font-size: 5rem;
+    width: 40rem;
+    height: 10rem;
+    color: $white;
+  }
+
+  &-select {
+    z-index: 10;
+    margin: 0 auto 0 35rem;
+    text-align: center;
+    border: solid white 1px;
+    position: absolute;
+    font-size: 5rem;
+    width: 40rem;
+    height: 10rem;
+    color: $white;
+  }
 }
 
-.calendar-table {
-  z-index: 1;
-  position: absolute;
-  top: 15rem;
-  left: 0;
+.empty {
+  width: 10rem;
+  height: 10rem;
+  border: solid white 1px;
 }
 
 .week-table {
@@ -23,35 +77,17 @@
   position: relative;
   background-color: $white;
   border: solid white 1px;
-  border-radius: 100px;
   width: 10rem;
   height: 10rem;
   margin-left: 3rem;
-}
 
-.day {
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: $white;
-  margin-top: 2rem;
-}
-
-.calendar-day {
-  z-index: 2;
-  position: relative;
-  width: 10rem;
-  height: 10rem;
-  margin-left: 3rem;
-  margin-top: 1rem;
-  border: solid white 1px;
-  border-radius: 100px;
-  transition: all 0.3s;
-
-  &:hover .day-num {
+  &-num {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: $white;
-    color: $black;
+    margin-top: 2rem;
   }
 }
 
@@ -62,42 +98,23 @@
   flex-wrap: wrap;
   color: $white;
   width: 75%;
-}
 
-.day-num {
-  cursor: pointer;
-  z-index: 1;
-  border-radius: 100px;
-  width: 100%;
-  height: 100%;
-  font-size: 3rem;
-  position: absolute;
-  text-align: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: all 0.3s;
+  &-num {
+    cursor: pointer;
+    z-index: 1;
+    border: solid $white 1px;
+    width: 100%;
+    height: 100%;
+    font-size: 3rem;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s;
+  }
 }
 
 .today > .day-num {
   text-decoration: underline;
 }
-
-.calendar-navi {
-  font-size: 7rem;
-  margin: 0 auto;
-  text-align: center;
-  color: $white;
-}
-
-// .calendar-month {
-//   z-index: 10;
-//   margin: 0 auto 0 35rem;
-//   text-align: center;
-//   border: solid white 1px;
-//   position: absolute;
-//   font-size: 5rem;
-//   width: 40rem;
-//   height: 10rem;
-//   color: $white;
-// }
