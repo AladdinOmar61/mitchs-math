@@ -5,6 +5,7 @@ export default class Calendar extends React.Component {
   weekdayShort = moment.weekdaysShort();
 
   state = {
+    showMonthTable: false,
     dateObject: moment(),
     allMonths: moment.months(),
   };
@@ -30,6 +31,12 @@ export default class Calendar extends React.Component {
     });
   };
 
+  showMonth = (e, month) => {
+    this.setState({
+      showMonthTable: !this.state.showMonthTable,
+    });
+  };
+
   monthList = (props) => {
     let months = [];
     props.data.map((data) => {
@@ -41,7 +48,7 @@ export default class Calendar extends React.Component {
             this.setMonth(data);
           }}
         >
-          <span className="calendar-month">{data}</span>
+          <span className="calendar-month-select-span">{data}</span>
         </td>
       );
     });
@@ -128,7 +135,12 @@ export default class Calendar extends React.Component {
     return (
       <div className="calendar">
         <div className="tail-datetime-calendar">
-          <div className="calendar-navi">
+          <div
+            className="calendar-navi"
+            onClick={(e) => {
+              this.showMonth();
+            }}
+          >
             <span
               onClick={(e) => {
                 this.showMonth();
@@ -140,7 +152,9 @@ export default class Calendar extends React.Component {
           </div>
         </div>
         <div className="calendar-date">
-          <this.monthList data={moment.months()} />
+          {this.state.showMonthTable && (
+            <this.monthList data={moment.months()} />
+          )}
         </div>
         <table className="calendar-table">
           <thead>
