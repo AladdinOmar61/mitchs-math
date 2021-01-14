@@ -5,7 +5,9 @@ export default class Calendar extends React.Component {
   weekdayShort = moment.weekdaysShort();
 
   state = {
+    showYearTable: false,
     showMonthTable: false,
+    showDateTable: true,
     dateObject: moment(),
     allMonths: moment.months(),
   };
@@ -39,6 +41,44 @@ export default class Calendar extends React.Component {
 
   year = () => {
     return this.state.dateObject.format("Y");
+  };
+
+  setYear = (year) => {
+    let dateObject = Object.assign({}, this.state.dateObject);
+    dateObject = moment(dateObject).set("year", year);
+    this.setState({
+      dateObject: dateObject,
+    });
+  };
+
+  showYearTable = (e) => {
+    this.setState({
+      showYearTable: !this.state.showYearTable,
+      showDateTable: !this.state.showDateTable,
+    });
+  };
+
+  onPrev = () => {
+    let curr = "";
+    if (this.state.showYearTable === true) {
+      curr = "year";
+    } else {
+      curr = "month";
+    }
+    this.setState({
+      dateObject: this.state.dateObject.subtract(1, curr),
+    });
+  };
+  onNext = () => {
+    let curr = "";
+    if (this.state.showYearTable === true) {
+      curr = "year";
+    } else {
+      curr = "month";
+    }
+    this.setState({
+      dateObject: this.state.dateObject.add(1, curr),
+    });
   };
 
   monthList = (props) => {
@@ -204,17 +244,37 @@ export default class Calendar extends React.Component {
           <div className="calendar-navi">
             <span
               onClick={(e) => {
+                this.onPrev();
+              }}
+              class="calendar-button calendar-button-prev"
+            />
+            &lt;
+            <span
+              onClick={(e) => {
                 this.showMonth();
               }}
               className="calendar-label"
             >
               {this.month()}
             </span>
-            <span className="calendar-label">{this.year()}</span>
+            <span
+              className="calendar-label"
+              onClick={(e) => this.showYearTable()}
+            >
+              {this.year()}
+            </span>
+            <span
+              onClick={(e) => {
+                this.onNext();
+              }}
+              className="calendar-button calendar-button-next"
+            >
+              &gt;
+            </span>
           </div>
         </div>
         <div className="calendar-date">
-          <this.yearTable props={this.year()} />
+          {this.state.showYearTable && <this.yearTable props={this.year()} />}
           {this.state.showMonthTable && (
             <this.monthList data={moment.months()} />
           )}

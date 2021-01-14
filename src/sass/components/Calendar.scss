@@ -34,6 +34,7 @@
     text-align: center;
     color: $white;
     cursor: pointer;
+    position: relative;
   }
 
   &-label {
@@ -122,6 +123,28 @@
       height: 100%;
       width: 100%;
       cursor: pointer;
+    }
+
+    &-button {
+      z-index: 20;
+      color: white;
+      width: 15rem;
+      height: 15rem;
+
+      &-prev {
+        position: absolute;
+        z-index: 20;
+        color: white;
+        width: 15rem;
+        height: 15rem;
+      }
+
+      &-next {
+        position: absolute;
+        color: white;
+        width: 15rem;
+        height: 15rem;
+      }
     }
   }
 
