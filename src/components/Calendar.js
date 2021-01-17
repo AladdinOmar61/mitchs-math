@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 export default class Calendar extends React.Component {
   weekdayShort = moment.weekdaysShort();
@@ -68,6 +69,7 @@ export default class Calendar extends React.Component {
     this.setState({
       dateObject: this.state.dateObject.subtract(1, curr),
     });
+    console.log("went back successfully");
   };
   onNext = () => {
     let curr = "";
@@ -79,6 +81,7 @@ export default class Calendar extends React.Component {
     this.setState({
       dateObject: this.state.dateObject.add(1, curr),
     });
+    console.log("went next successfully");
   };
 
   monthList = (props) => {
@@ -199,7 +202,9 @@ export default class Calendar extends React.Component {
     let weekdayshortname = this.weekdayShort.map((day) => {
       return (
         <th key={day} className="week-day">
-          <span className="week-day-num">{day}</span>
+          <Link className="week-day-link" to="/details/day">
+            <span className="week-day-num">{day}</span>
+          </Link>
         </th>
       );
     });
@@ -240,15 +245,24 @@ export default class Calendar extends React.Component {
 
     return (
       <div className="calendar">
-        <div className="tail-datetime-calendar">
-          <div className="calendar-navi">
-            <span
-              onClick={(e) => {
-                this.onPrev();
-              }}
-              class="calendar-button calendar-button-prev"
-            />
+        <div className="calendar-datetime">
+          <span
+            onClick={(e) => {
+              this.onPrev();
+            }}
+            class="calendar-datetime-button calendar-datetime-button-prev"
+          >
             &lt;
+          </span>
+          <span
+            onClick={(e) => {
+              this.onNext();
+            }}
+            className="calendar-datetime-button calendar-datetime-button-next"
+          >
+            &gt;
+          </span>
+          <div className="calendar-navi">
             <span
               onClick={(e) => {
                 this.showMonth();
@@ -262,14 +276,6 @@ export default class Calendar extends React.Component {
               onClick={(e) => this.showYearTable()}
             >
               {this.year()}
-            </span>
-            <span
-              onClick={(e) => {
-                this.onNext();
-              }}
-              className="calendar-button calendar-button-next"
-            >
-              &gt;
             </span>
           </div>
         </div>

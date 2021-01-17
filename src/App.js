@@ -13,6 +13,9 @@ function App() {
       <Route exact path="/details">
         <ProgramDetails />
       </Route>
+      <Route exact path="/details/day">
+        {/* <SelectTimes/> */}
+      </Route>
       </Switch>
     </div>
   );

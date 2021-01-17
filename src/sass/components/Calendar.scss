@@ -2,6 +2,33 @@
   margin-top: 3rem;
   position: relative;
 
+  &-datetime {
+    &-button {
+      z-index: 20;
+      color: white;
+      &::selection {
+        color: none;
+        background: none;
+      }
+
+      &-prev {
+        position: absolute;
+        left: 30rem;
+        color: white;
+        font-size: 7rem;
+        cursor: pointer;
+      }
+
+      &-next {
+        position: absolute;
+        color: white;
+        right: 30rem;
+        font-size: 7rem;
+        cursor: pointer;
+      }
+    }
+  }
+
   &-table {
     z-index: 1;
     position: absolute;
@@ -27,7 +54,7 @@
   }
 
   &-navi {
-    z-index: 12;
+    // z-index: 12;
     // width: 30rem;
     font-size: 7rem;
     margin: 0 auto;
@@ -42,11 +69,15 @@
     &:hover {
       background-color: $light-grey;
     }
+    &::selection {
+      color: none;
+      background: none;
+    }
   }
 
   &-month {
     z-index: 10;
-    margin: 0 auto 0 42rem;
+    margin: 5rem auto 0 42rem;
     text-align: center;
     border: solid white 1px;
     position: absolute;
@@ -76,18 +107,26 @@
     width: 100%;
     height: 100%;
     color: $white;
+    &::selection {
+      color: none;
+      background: none;
+    }
 
     &-span {
       padding: 0.5rem;
       height: 100%;
       width: 100%;
       cursor: pointer;
+    }
+    &::selection {
+      color: none;
+      background: none;
     }
   }
 
   &-year {
     z-index: 10;
-    margin: 0 auto 0 65rem;
+    margin: 5rem auto 0 65rem;
     text-align: center;
     border: solid white 1px;
     position: absolute;
@@ -123,28 +162,6 @@
       height: 100%;
       width: 100%;
       cursor: pointer;
-    }
-
-    &-button {
-      z-index: 20;
-      color: white;
-      width: 15rem;
-      height: 15rem;
-
-      &-prev {
-        position: absolute;
-        z-index: 20;
-        color: white;
-        width: 15rem;
-        height: 15rem;
-      }
-
-      &-next {
-        position: absolute;
-        color: white;
-        width: 15rem;
-        height: 15rem;
-      }
     }
   }
 
@@ -170,6 +187,10 @@
     width: 10rem;
     height: 10rem;
     margin-left: 3rem;
+
+    &-link {
+      color: black;
+    }
 
     &-num {
       position: absolute;
