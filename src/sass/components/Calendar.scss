@@ -47,6 +47,10 @@
     border-radius: 100px;
     transition: all 0.3s;
 
+    &-link {
+      color: white;
+    }
+
     &:hover .days-num {
       background-color: $white;
       color: $black;
@@ -187,10 +191,6 @@
     width: 10rem;
     height: 10rem;
     margin-left: 3rem;
-
-    &-link {
-      color: black;
-    }
 
     &-num {
       position: absolute;

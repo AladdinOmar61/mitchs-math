@@ -1,0 +1,65 @@
+.select-time {
+  text-transform: uppercase;
+  font-size: 3rem;
+  margin-left: 20rem;
+  margin-top: 5rem;
+  font-weight: 100;
+  color: $white;
+
+  &-range {
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 100;
+    color: $white;
+    margin-top: 5rem;
+
+    &-link {
+        color: white;
+    }
+
+    &-1 {
+        margin: 5rem auto;
+        border: solid white 1px;
+        padding: 2rem;
+        width: 60rem;
+        text-align: center;
+        transition: all .3s;
+        cursor: pointer;
+
+        &:hover{
+            background-color: white;
+            color: black;
+        }
+    }
+
+    &-2 {
+        margin: 5rem auto;
+        border: solid white 1px;
+        padding: 2rem;
+        width: 60rem;
+        text-align: center;
+        transition: all .3s;
+        cursor: pointer;
+
+        &:hover{
+            background-color: white;
+            color: black;
+        }
+    }
+
+    &-3 {
+        margin: 5rem auto;
+        border: solid white 1px;
+        padding: 2rem;
+        width: 60rem;
+        text-align: center;
+        transition: all .3s;
+        cursor: pointer;
+
+        &:hover{
+            background-color: white;
+            color: black;
+        }
+    }
+  }
+}
