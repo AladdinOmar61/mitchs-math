@@ -215,7 +215,7 @@ export default class Calendar extends React.Component {
       let currentDay = d === this.currentDay() ? "today" : "";
       daysInMonth.push(
         <td key={d} className={`calendar-day ${currentDay}`}>
-          <Link className="calendar-day-link" to="/details/date">
+          <Link className="calendar-day-link" to="/programs/date">
             <span className="days-num">{d}</span>
           </Link>
         </td>

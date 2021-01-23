@@ -11,10 +11,10 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/details">
+        <Route exact path="/program">
           <ProgramDetails />
         </Route>
-        <Route exact path="/details/date">
+        <Route exact path="/program/date">
           <SelectTimes />
         </Route>
       </Switch>
