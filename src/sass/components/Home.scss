@@ -80,8 +80,10 @@ a {
     transition: all 0.3s;
 
     &-header {
+      text-transform: uppercase;
+      font-size: 100;
       text-align: center;
-      font-size: 3rem;
+      font-size: 2.5rem;
       color: white;
     }
 

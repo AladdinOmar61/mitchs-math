@@ -1,14 +1,15 @@
 [
-  {
-    "id": 0,
-    "name": "2nd - 8th Grade Math"
-  },
-  {
-    "id": 1,
-    "name": "Algebra I"
-  },
-  {
-    "id": 2,
-    "name": "Geometry"
-  }
+  { "id": 0, "name": "2nd - 8th Grade Math" },
+  { "id": 1, "name": "Algebra I" },
+  { "id": 2, "name": "Geometry" },
+  { "id": 3, "name": "Algebra II / Trigonometry" },
+  { "id": 4, "name": "Pre-calculus" },
+  { "id": 5, "name": "Calculus I" },
+  { "id": 6, "name": "Calculus II" },
+  { "id": 7, "name": "Calculus III" },
+  { "id": 8, "name": "Linear Algebra" },
+  { "id": 9, "name": "Statistics" },
+  { "id": 10, "name": "Differential Equations" },
+  { "id": 11, "name": "test program" },
+  { "id": 12, "name": "test program" }
 ]

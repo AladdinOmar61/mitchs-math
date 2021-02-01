@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Home() {
+function Programs() {
   return (
     <div className="home">
       <nav className="home-nav">
@@ -88,4 +88,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Programs;

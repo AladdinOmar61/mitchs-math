@@ -1,5 +1,5 @@
 import "./sass/main.scss";
-import Home from "./components/Home.js";
+import Programs from "./components/Programs.js";
 import ProgramDetails from "./components/ProgramDetails.js";
 import SelectTimes from "./components/SelectTimes.js";
 import { Route, Switch } from "react-router-dom";
@@ -9,9 +9,9 @@ function App() {
     <div className="App">
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Programs />
         </Route>
-        <Route exact path="/program">
+        <Route exact path="/programs">
           <ProgramDetails />
         </Route>
         <Route exact path="/program/date">
