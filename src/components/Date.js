@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Calendar from "./Calendar.js";
 
-function ProgramDetails() {
+function Date() {
   return (
-    <div className="programDetails">
+    <div className="date">
       <nav className="home-nav">
         <Link to="/about" className="home-nav-link">
           About
@@ -13,7 +13,7 @@ function ProgramDetails() {
           Login
         </Link>
       </nav>
-      <div className="details-space">
+      <div className="date-space">
         <h1 className="select-days">Select A Day</h1>
         <Calendar />
       </div>
@@ -21,4 +21,4 @@ function ProgramDetails() {
   );
 }
 
-export default ProgramDetails;
+export default Date;

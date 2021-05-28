@@ -2,25 +2,13 @@ const fs = require("fs");
 const express = require("express");
 
 const app = express();
-
 app.use(express.json());
-
-// app.get("/", (req, res) => {
-//   res.status(200).json({
-//     message: "Hello from the server side of mitchs math",
-//     app: "Mitchs Math",
-//   });
-// });
-
-// app.post("/", (req, res) => {
-//   res.send("You can post to this endpoint");
-// });
 
 const programs = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/import-data.json`)
 );
 
-app.get("/", (req, res) => {
+const getAllPrograms = (req, res) => {
   res.json({
     status: "success",
     results: programs.length,
@@ -28,9 +16,9 @@ app.get("/", (req, res) => {
       programs,
     },
   });
-});
+};
 
-app.get("/:id", (req, res) => {
+const getProgram = (req, res) => {
   console.log(req.params);
   const id = req.params.id * 1;
   const program = programs.find((el) => el.id === id);
@@ -49,9 +37,9 @@ app.get("/:id", (req, res) => {
       program,
     },
   });
-});
+};
 
-app.post("/", (req, res) => {
+const createProgram = (req, res) => {
   const newId = programs[programs.length - 1].id + 1;
   const newProgram = Object.assign({ id: newId }, req.body);
   programs.push(newProgram);
@@ -67,9 +55,9 @@ app.post("/", (req, res) => {
       });
     }
   );
-});
+};
 
-app.patch("/:id", (req, res) => {
+const updateProgram = (req, res) => {
   if (req.params.id * 1 > programs.length) {
     return res.status(404).json({
       status: "fail",
@@ -83,9 +71,9 @@ app.patch("/:id", (req, res) => {
       program: "<Updated tour here>",
     },
   });
-});
+};
 
-app.delete("/:id", (req, res) => {
+const deleteProgram = (req, res) => {
   if (req.params.id * 1 > programs.length) {
     return res.status(404).json({
       status: "fail",
@@ -97,7 +85,17 @@ app.delete("/:id", (req, res) => {
     status: "success",
     data: "null",
   });
-});
+};
+
+// app.get("/", getAllPrograms);
+// app.get("/:id", getProgram);
+// app.post("/", createProgram);
+// app.patch("/:id", updateProgram);
+// app.delete("/:id", deleteProgram);
+
+app.route("/").get(getAllPrograms).post(createProgram);
+
+app.route("/:id").get(getProgram).patch(updateProgram).delete(deleteProgram);
 
 const port = 3000;
 app.listen(port, () => {

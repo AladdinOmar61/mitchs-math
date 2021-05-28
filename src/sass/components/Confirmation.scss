@@ -1,0 +1,39 @@
+.confirm {
+  color: white;
+  text-align: center;
+  font-size: 4rem;
+  text-transform: uppercase;
+  font-weight: 100;
+
+  &-message {
+    transform: translateY(7rem);
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 100;
+  }
+
+  &-info {
+    transform: translateY(7rem);
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 100;
+  }
+
+  &-button {
+      color: white;
+      background-color: $grey;
+      border: solid white 1px;
+      height: 5rem;
+      width: 7rem;
+      transform: translate(67rem, 15rem);
+      transition: all .3s;
+      &:hover{
+        color: black;
+        background-color: white;
+      }
+  }
+}
