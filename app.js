@@ -1,16 +1,32 @@
 const fs = require("fs");
 const express = require("express");
+const morgan = require("morgan");
 
 const app = express();
+
+app.use(morgan("dev"));
 app.use(express.json());
+
+app.use((req, res, next) => {
+  console.log("Hello from the middleware");
+  next();
+});
+
+app.use((req, res, next) => {
+  req.requestTime = new Date().toISOString();
+  next();
+});
 
 const programs = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/import-data.json`)
 );
 
 const getAllPrograms = (req, res) => {
+  console.log(req.requestTime);
+
   res.json({
     status: "success",
+    requestedAt: req.requestTime,
     results: programs.length,
     data: {
       programs,
@@ -87,15 +103,58 @@ const deleteProgram = (req, res) => {
   });
 };
 
-// app.get("/", getAllPrograms);
-// app.get("/:id", getProgram);
-// app.post("/", createProgram);
-// app.patch("/:id", updateProgram);
-// app.delete("/:id", deleteProgram);
+const getAllUsers = (req, res) => {
+  res.status(500).json({
+    status: "error",
+    message: "this route is not yet defined",
+  });
+};
 
-app.route("/").get(getAllPrograms).post(createProgram);
+const getUser = (req, res) => {
+  res.status(500).json({
+    status: "error",
+    message: "this route is not yet defined",
+  });
+};
 
-app.route("/:id").get(getProgram).patch(updateProgram).delete(deleteProgram);
+const createUser = (req, res) => {
+  res.status(500).json({
+    status: "error",
+    message: "this route is not yet defined",
+  });
+};
+
+const updateUser = (req, res) => {
+  res.status(500).json({
+    status: "error",
+    message: "this route is not yet defined",
+  });
+};
+
+const deleteUser = (req, res) => {
+  res.status(500).json({
+    status: "error",
+    message: "this route is not yet defined",
+  });
+};
+
+const programRouter = express.Router();
+const userRouter = express.Router();
+
+app.use("/programs", programRouter);
+app.use("/users", userRouter);
+
+programRouter.route("/").get(getAllPrograms).post(createProgram);
+
+programRouter
+  .route("/:id")
+  .get(getProgram)
+  .patch(updateProgram)
+  .delete(deleteProgram);
+
+userRouter.route("/").get(getAllUsers).post(createUser);
+
+userRouter.route("/:id").get(getUser).patch(updateUser).delete(deleteUser);
 
 const port = 3000;
 app.listen(port, () => {
