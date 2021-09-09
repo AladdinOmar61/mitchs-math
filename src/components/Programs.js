@@ -1,17 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Header from "./Header.js";
 
 function Programs() {
   return (
     <div className="home">
-      <nav className="home-nav">
-        <Link to="/about" className="home-nav-link">
-          About
-        </Link>
-        <Link to="/login" className="home-nav-link">
-          Login
-        </Link>
-      </nav>
+      <Header />
       <h1 className="home-header">
         Mitch's<span className="math">Math</span>
       </h1>

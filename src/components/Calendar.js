@@ -1,297 +1,113 @@
-import React from "react";
-import moment from "moment";
-import { Link } from "react-router-dom";
+// import { React, useState } from "react";
+// import { format, isSameMonth, isSameDay, add } from "date-fns";
+// import { Link } from "react-router-dom";
 
-export default class Calendar extends React.Component {
-  weekdayShort = moment.weekdaysShort();
+// export default function Calendar() {
+//   const {
+//     startOfMonth,
+//     startOfWeek,
+//     endOfMonth,
+//     endOfWeek,
+//     startOfDay,
+//     addDays,
+//     addMonths,
+//   } = require("date-fns");
 
-  state = {
-    showYearTable: false,
-    showMonthTable: false,
-    showDateTable: true,
-    dateObject: moment(),
-    allMonths: moment.months(),
-  };
+//   const [selectedDate, setSelectedDate] = useState(new Date());
 
-  daysInMonth = () => {
-    return this.state.dateObject.daysInMonth();
-  };
+//   function takeWeek(start = new Date()) {
+//     let date = startOfWeek(startOfDay(start));
 
-  currentDay = () => {
-    return this.state.dateObject.format("D");
-  };
+//     return function () {
+//       const week = [...Array(7)].map((_, i) => addDays(date, i));
+//       date = addDays(week[6], 1);
+//       return week;
+//     };
+//   }
 
-  month = () => {
-    return this.state.dateObject.format("MMMM");
-  };
+//   function takeMonth(start = new Date()) {
+//     let month = [];
+//     let date = start;
 
-  setMonth = (month) => {
-    let monthNo = this.state.allMonths.indexOf(month);
-    let dateObject = Object.assign({}, this.state.dateObject);
-    dateObject = moment(dateObject).set("month", monthNo);
-    this.setState({
-      dateObject,
-    });
-  };
+//     function lastDayOfRange(range) {
+//       return range[range.length - 1][6];
+//     }
 
-  showMonth = (e, month) => {
-    this.setState({
-      showMonthTable: !this.state.showMonthTable,
-    });
-  };
+//     return function () {
+//       const weekGen = takeWeek(startOfMonth(date));
+//       const endDate = startOfDay(endOfWeek(endOfMonth(date)));
+//       month.push(weekGen());
 
-  year = () => {
-    return this.state.dateObject.format("Y");
-  };
+//       while (lastDayOfRange(month) < endDate) {
+//         month.push(weekGen());
+//       }
 
-  setYear = (year) => {
-    let dateObject = Object.assign({}, this.state.dateObject);
-    dateObject = moment(dateObject).set("year", year);
-    this.setState({
-      dateObject: dateObject,
-    });
-  };
+//       const range = month;
+//       month = [];
+//       date = addDays(lastDayOfRange(range), 1);
 
-  showYearTable = (e) => {
-    this.setState({
-      showYearTable: !this.state.showYearTable,
-      showDateTable: !this.state.showDateTable,
-    });
-  };
+//       return range;
+//     };
+//   }
 
-  onPrev = () => {
-    let curr = "";
-    if (this.state.showYearTable === true) {
-      curr = "year";
-    } else {
-      curr = "month";
-    }
-    this.setState({
-      dateObject: this.state.dateObject.subtract(1, curr),
-    });
-    console.log("went back successfully");
-  };
-  onNext = () => {
-    let curr = "";
-    if (this.state.showYearTable === true) {
-      curr = "year";
-    } else {
-      curr = "month";
-    }
-    this.setState({
-      dateObject: this.state.dateObject.add(1, curr),
-    });
-    console.log("went next successfully");
-  };
+//   console.log(takeMonth(new Date())());
 
-  monthList = (props) => {
-    let months = [];
-    props.data.map((data) => {
-      return(
-      months.push(
-        <td
-          key={data}
-          className="calendar-month-select"
-          onClick={(e) => {
-            this.setMonth(data);
-          }}
-        >
-          <span className="calendar-month-select-span">{data}</span>
-        </td>
-      ));
-    });
+//   // const tw = takeWeek(new Date());
+//   // console.log(tw());
+//   // console.log(tw());
+//   const data = takeMonth(selectedDate)();
 
-    let rows = [];
-    let cells = [];
+//   function dayColor(day) {
+//     if (isSameDay(day, selectedDate)) {
+//       return "calendar-day";
+//     }
+//   }
 
-    months.forEach((row, i) => {
-      if (i % 3 !== 0 || i === 0) {
-        cells.push(row);
-      } else {
-        rows.push(cells);
-        cells = [];
-        cells.push(row);
-      }
-    });
-    rows.push(cells);
+//   function addMonth() {
+//     addMonths(selectedDate, 1);
+//     console.log(addMonths(selectedDate, 1));
+//   }
 
-    let monthList = rows.map((d, i) => {
-      return <tr>{d}</tr>;
-    });
-    return (
-      <table className="calendar-month">
-        <thead>
-          <tr>
-            <th colspan="4">Select a Month</th>
-          </tr>
-        </thead>
-        <tbody>{monthList}</tbody>
-      </table>
-    );
-  };
+//   return (
+//     //converting tailwind back to sass
+//     <div className="calendar">
+//       <div className="">
+//         <h1 className="calendar-month-and-year">
+//           <div className="prev-month"></div>
+//           {format(selectedDate, "MMMM").toUpperCase()}{" "}
+//           {format(selectedDate, "yyyy").toUpperCase()}
+//           <button onClick={() => takeMonth(new Date())()} className="next-month"></button>
+//         </h1>
 
-  firstDayOfMonth = () => {
-    let dateObject = this.state.dateObject;
-    let firstDay = moment(dateObject).startOf("month").format("d");
-    return firstDay;
-  };
-
-  yearTable = (props) => {
-    let months = [];
-    let nextten = moment().set("year", props).add("year", 12).format("Y");
-
-    let twelveyears = this.getDates(props, nextten);
-
-    twelveyears.map((data) => {
-      return(
-      months.push(
-        <td
-          key={data}
-          className="calendar-year-select"
-          onClick={(e) => {
-            this.setYear(data);
-          }}
-        >
-          <span className="calendar-year-select-span">{data}</span>
-        </td>
-      ));
-    });
-
-    let rows = [];
-    let cells = [];
-
-    months.forEach((row, i) => {
-      if (i % 3 !== 0 || i === 0) {
-        cells.push(row);
-      } else {
-        rows.push(cells);
-        cells = [];
-        cells.push(row);
-      }
-    });
-
-    rows.push(cells);
-    let yearlist = rows.map((d, i) => {
-      return <tr>{d}</tr>;
-    });
-
-    return (
-      <table className="calendar-year">
-        <thead>
-          <tr>
-            <th colSpan="4">Select a Year</th>
-          </tr>
-        </thead>
-        <tbody>{yearlist}</tbody>
-      </table>
-    );
-  };
-
-  getDates(startDate, stopDate) {
-    var dateArray = [];
-    var currentDate = moment(startDate);
-    var stopDate = moment(stopDate);
-    while (currentDate <= stopDate) {
-      dateArray.push(moment(currentDate).format("YYYY"));
-      currentDate = moment(currentDate).add(1, "year");
-    }
-    return dateArray;
-  }
-
-  render() {
-    let weekdayshortname = this.weekdayShort.map((day) => {
-      return (
-        <th key={day} className="week-day">
-          <span className="week-day-num">{day}</span>
-        </th>
-      );
-    });
-    let blanks = [];
-    for (let i = 0; i < this.firstDayOfMonth(); i++) {
-      blanks.push(<td className="calendar-day empty">{""}</td>);
-    }
-    let daysInMonth = [];
-    for (let d = 1; d <= this.daysInMonth(); d++) {
-      let currentDay = d === this.currentDay() ? "today" : "";
-      daysInMonth.push(
-        <td key={d} className={`calendar-day ${currentDay}`}>
-          <Link className="calendar-day-link" to="/programs/date/time">
-            <span className="days-num">{d}</span>
-          </Link>
-        </td>
-      );
-    }
-
-    var totalSlots = [...blanks, ...daysInMonth];
-    let rows = [];
-    let cells = [];
-
-    totalSlots.forEach((row, i) => {
-      if (i % 7 !== 0) {
-        cells.push(row);
-      } else {
-        rows.push(cells);
-        cells = [];
-        cells.push(row);
-      }
-      if (i === totalSlots.length - 1) {
-        rows.push(cells);
-      }
-
-    //   let daysInMonth = rows.map((d, i) => {
-    //     return <tr>{d}</tr>;
-    //   });
-    });
-
-    return (
-      <div className="calendar">
-        <div className="calendar-datetime">
-          <span
-            onClick={(e) => {
-              this.onPrev();
-            }}
-            className="calendar-datetime-button calendar-datetime-button-prev"
-          >
-            &lt;
-          </span>
-          <span
-            onClick={(e) => {
-              this.onNext();
-            }}
-            className="calendar-datetime-button calendar-datetime-button-next"
-          >
-            &gt;
-          </span>
-          <div className="calendar-navi">
-            <span
-              onClick={(e) => {
-                this.showMonth();
-              }}
-              className="calendar-label"
-            >
-              {this.month()}
-            </span>
-            <span
-              className="calendar-label"
-              onClick={(e) => this.showYearTable()}
-            >
-              {this.year()}
-            </span>
-          </div>
-        </div>
-        <div className="calendar-date">
-          {this.state.showYearTable && <this.yearTable props={this.year()} />}
-          {this.state.showMonthTable && (
-            <this.monthList data={moment.months()} />
-          )}
-        </div>
-        <table className="calendar-table">
-          <thead>
-            <tr className="week-table">{weekdayshortname}</tr>
-          </thead>
-          <tbody className="days">{daysInMonth}</tbody>
-        </table>
-      </div>
-    );
-  }
-}
+//         <div className={"grid grid-cols-7"}>
+//           {["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"].map(
+//             (dayName, i) => (
+//               <div className="calendar-weekday">{dayName}</div>
+//             )
+//           )}
+//         </div>
+//         {data.map((week) => (
+//           <div className={"grid grid-cols-7"}>
+//             {week.map((day) => (
+//               // <Link to="/programs/date/time">
+//                 <div
+//                   onClick={() => setSelectedDate(day)}
+//                   className={`${
+//                     !isSameMonth(day, selectedDate)
+//                       ? "calendar-day-offmonth"
+//                       : "calendar-day" }
+//                       // ${isSameDay(day, selectedDate)
+//                       // ? "calendar-current-day"
+//                       // : ""
+//                   }`}
+//                 >
+//                   {format(day, "dd")}
+//                 </div>
+//               /* </Link> */
+//             ))}
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }

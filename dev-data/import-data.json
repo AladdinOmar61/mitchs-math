@@ -9,7 +9,5 @@
   { "id": 7, "name": "Calculus III" },
   { "id": 8, "name": "Linear Algebra" },
   { "id": 9, "name": "Statistics" },
-  { "id": 10, "name": "Differential Equations" },
-  { "id": 11, "name": "test program" },
-  { "id": 12, "name": "test program" }
+  { "id": 10, "name": "Differential Equations" }
 ]
