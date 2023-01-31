@@ -6,14 +6,10 @@ const programSchema = new mongoose.Schema({
     required: [true, "Program must have a name."],
     unique: true,
   },
-  ratingsAverage: {
-    type: Number,
-    default: 4.5,
-  },
-  ratingsQuantity: {
-    type: Number,
-    default: 0,
-  },
+  createdAt: {
+    type: Date,
+    default: Date.now()
+  }
 });
 
 const Program = mongoose.model("Program", programSchema);

@@ -32,7 +32,6 @@ class Date extends React.Component {
         </form>
         {console.log(this.state.inputDate)}
         {console.log(this.state.inputTime)}
-  
       </div>
     );
   }
