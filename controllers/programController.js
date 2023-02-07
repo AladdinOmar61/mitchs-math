@@ -1,7 +1,7 @@
 /* eslint-disable node/no-unsupported-features/es-syntax */
 const Program = require("../models/programModel");
 const APIFeatures = require('../utils/apiFeatures');
-//skipping aggregation pipelines
+//skipping aggregation pipelines                                            
 
 exports.getAllPrograms = async (req, res) => {
   try {
@@ -92,6 +92,8 @@ exports.deleteProgram = async (req, res) => {
     // program.deleteOne(req.body);
 
     Program.findByIdAndDelete(req.params.id);
+
+    console.log(req.params.id);
 
     res.status(204).json({
       status: 'success',
